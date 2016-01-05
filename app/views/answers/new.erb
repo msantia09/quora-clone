@@ -1,0 +1,15 @@
+<div class="question">
+	<h2>Question : <%= @question.quest%></h2>
+	<small>by <%= @question.user.email %></small>
+</div>
+
+
+<div class="answer">
+<h2>Answer:</h2>
+
+
+<form action="/question/<%= @question.id %>/answers/new" method="post">
+	<textarea name="answer[ans]" row="20" cols="50"></textarea>
+	<input type="submit" value="Submit Answer">
+</form>
+</div>

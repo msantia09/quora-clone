@@ -1,2 +1,43 @@
-<h1>Hello World</h1>
-<p>See Me in views/static/index.html.erb</p>
+
+<form action="/questions" method="post">
+      <input type="text" class="resizedTextbox" placeholder="Ask Quora" name="question[quest]">
+      <button class="myButton">Ask Question</button>
+</form>
+
+
+<p><a href="/my_questions">My Questions</a></p>
+<br>
+<br>
+<p><a href="/my_answers">My Answers</a></p>
+<br>
+<br>
+
+<div id="top_stories"></div>
+<h2>Top Stories</h2>
+
+
+<div>
+	<% if @all_questions.any? %><br>
+	<ul>
+		<% @all_questions.each do |question| %>
+			<li>
+				<a href="/question/<%= question.id%>"><%= question.quest %></a>
+				<small>by <%= question.user.email %></small>
+			</li><br>		
+			<form  action="/question/<%= question.id%>/answers" method="post">
+				<button>Answer</button>
+			</form>
+
+			<form  action="/questions/<%= question.id%>/pre-edit-q" method="post">
+				<button>Edit Question</button>
+			</form>
+
+			<form action="/question/<%= question.id %>" method="post">
+				<button>Delete</button>
+			</form><br>
+
+		<% end %>
+	</ul>
+	<%end%>
+</div>
+

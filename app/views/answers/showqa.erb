@@ -1,0 +1,14 @@
+
+<div class="question">
+	<h2>Question : <%= @question.quest%></h2>
+	<small>by <%= @question.user.email %></small>
+</div>
+
+<div class="answer">
+	<h3>Answer : </h3>
+	<ul>
+		<li> <%= @answer.ans%>
+		<small>by <%= @answer.user.email %></small>
+		</li>
+	</ul>
+</div>

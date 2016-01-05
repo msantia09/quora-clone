@@ -1,0 +1,16 @@
+
+<div>
+	<h2>My Answers </h2>
+	<% if @my_answers.any? %><br>
+	<ul>
+		<% @my_answers.each do |answer| %>
+			<li>
+				<a href="/answer/<%= answer.id %>">
+					<%= answer.ans %>
+				</a>
+				<small>by <%= answer.user.email %></small>
+			</li><br>
+		<% end %>
+	</ul>
+	<%end%>
+</div>
